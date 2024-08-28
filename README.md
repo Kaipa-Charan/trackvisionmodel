@@ -1,1 +1,7 @@
 # trackvisionmodel
+
+This Python code is designed for image processing and crack detection using OpenCV and other libraries. The code includes functions for applying orientated non-maximum suppression (a technique used in edge detection) to highlight significant edges in an image based on gradient magnitude and direction. It starts by parsing command-line arguments to get the input image file path and an optional output file path.
+
+Once an image is loaded, it is converted to grayscale and processed through several stages: Gaussian blurring, Sobel edge detection, and gradient magnitude and direction calculation. The code applies a threshold to the gradient magnitude to filter out weak edges and then optionally applies non-maximum suppression to refine edge localization. If suppression is applied, the resulting edge map is binarized and processed with morphological operations to close gaps and improve detection accuracy.
+
+The processed image is analyzed to determine if a "crack" is present based on the ratio of white to black pixels in the binary image. If the ratio exceeds a threshold, the code annotates the original image with the text "Cracked"; otherwise, it labels the image as "Not Cracked." The final output image, which includes this annotation, is saved to the specified path, and both the original and processed images are displayed. The script ensures proper cleanup by releasing resources and closing windows once processing is complete.
